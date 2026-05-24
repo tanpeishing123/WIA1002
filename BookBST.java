@@ -14,12 +14,12 @@ public class BookBST {
         } else if (i > r.isbn) {
             r.right = ins(r.right, i, t, a);
         } else {
-            System.out.println("  [Warning] ISBN " + i + " already exists.");
+            System.out.println("  [Warning] ISBN " + i + " already exists in catalogue.");
         }
         return r;
     }
 
-    // --- Search (Menu item 2: Search Book, O log n) ---
+    // --- Search by ISBN (Menu item 2: Search Book, O log n) ---
     public Book search(int i) {
         return sea(root, i);
     }
@@ -27,6 +27,59 @@ public class BookBST {
     private Book sea(Book r, int i) {
         if (r == null || r.isbn == i) return r;
         return (i < r.isbn) ? sea(r.left, i) : sea(r.right, i);
+    }
+
+    // --- Search by Title keyword (Additional Feature) ---
+    // In-order traversal — checks every node for partial title match (case-insensitive)
+    public boolean searchByTitle(String keyword) {
+        return searchTitleInOrder(root, keyword.toLowerCase());
+    }
+
+    private boolean searchTitleInOrder(Book r, String keyword) {
+        if (r == null) return false;
+        boolean found = false;
+        found |= searchTitleInOrder(r.left, keyword);
+        if (r.title.toLowerCase().contains(keyword)) {
+            System.out.println("  [ISBN: " + r.isbn + "] " + r.title + " by " + r.author);
+            found = true;
+        }
+        found |= searchTitleInOrder(r.right, keyword);
+        return found;
+    }
+
+    // --- Search by Author keyword (Additional Feature) ---
+    // In-order traversal — checks every node for partial author match (case-insensitive)
+    public boolean searchByAuthor(String keyword) {
+        return searchAuthorInOrder(root, keyword.toLowerCase());
+    }
+
+    private boolean searchAuthorInOrder(Book r, String keyword) {
+        if (r == null) return false;
+        boolean found = false;
+        found |= searchAuthorInOrder(r.left, keyword);
+        if (r.author.toLowerCase().contains(keyword)) {
+            System.out.println("  [ISBN: " + r.isbn + "] " + r.title + " by " + r.author);
+            found = true;
+        }
+        found |= searchAuthorInOrder(r.right, keyword);
+        return found;
+    }
+
+    // --- Display All Books in ascending ISBN order (Additional Feature) ---
+    // In-order traversal (left -> node -> right) always produces ascending ISBN order
+    // because BST stores smaller ISBNs on the left and larger on the right
+    public boolean displayAll() {
+        return inOrder(root);
+    }
+
+    private boolean inOrder(Book r) {
+        if (r == null) return false;
+        boolean found = false;
+        found |= inOrder(r.left);
+        System.out.println("  [ISBN: " + r.isbn + "] " + r.title + " by " + r.author);
+        found = true;
+        inOrder(r.right);
+        return found;
     }
 
     // --- Remove (used by borrowBook to delete from catalogue after borrowing) ---
