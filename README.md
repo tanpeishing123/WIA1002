@@ -65,4 +65,3 @@ The user interface implements strict error-trapping routines to prevent run-time
 
 ---
 
-## 📂 File Directory Mapping
