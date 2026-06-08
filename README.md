@@ -19,11 +19,11 @@ Following a robust modular programming strategy, the system logic and interfaces
 
 | Member Name | Matric Number | Project Role | Core Responsibilities |
 | :--- | :--- | :--- | :--- |
-| **MIAO XINYU** | 24218381 | **ADT Designer & Entity Architect** | Designed the foundational abstract interface (`LibraryADT.java`) to ensure encapsulation; developed the core `Book.java` entity class with embedded flag states. |
-| **PENG YI** | 24225006 | **Catalogue BST Architect** | Implemented the primary Binary Search Tree structure (`BookBST.java`) including recursive insertion, $O(\log n)$ exact ISBN searching, and node deletion algorithms. |
+| **TAN PEI SHING** | 24220647 | **System Admin & Console Developer** | Programmed the menu-driven driver loop (`Main.java`); engineered deep input sanitization for `Scanner` inputs, and linked BST/Stack logic via `SmartLibrary.java` to support Extra Features. |
+| **PENG YI** | 24225006 | **ADT Designer & System Architect** | Designed the foundational abstract interface (`LibraryADT.java`) to ensure encapsulation and information hiding across the system. |
+| **SHI TAILIN** | 24209897 | **Catalogue BST Architect** | Implemented the primary Binary Search Tree structure (`BookBST.java`) including recursive insertion, $O(\\log n)$ exact ISBN searching, and node deletion algorithms. |
 | **ZHONG XIANHAO** | 23072660 | **Borrowing History Manager** | Developed the transactional logging system using a custom Stack wrapper (`BorrowStack.java`), ensuring history logs follow a strict LIFO (Last-In, First-Out) order. |
-| **SHI TAILIN** | 24209897 | **System Business Logic Admin** | Implemented the transactional business layer in `SmartLibrary.java` linking the BST and Stack; engineered the manual **Fine Management System** and day-difference calculation algorithms. |
-| **TAN PEI SHING** | 24220647 | **Interface & QA Validation Developer** | Programmed the menu-driven driver loop (`Main.java`); engineered deep input sanitization for `Scanner` inputs (ISBN regex checking, positive bounds, custom date parsing), ensuring 100% crash-free execution. |
+| **MIAO XINYU** | 24218381 | **Entity & Fine Algorithm Developer** | Developed the core `Book.java` entity class; engineered the manual standalone date-conversion algorithm (without external libraries) to support the Fine Management System's day-difference calculations. |
 
 ---
 
